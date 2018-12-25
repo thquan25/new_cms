@@ -6,8 +6,9 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use App\Entity\User;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 
-class UserFixtures extends Fixture
+class UserFixtures extends Fixture implements OrderedFixtureInterface
 {
     private $passwordEncoder;
 
@@ -33,5 +34,12 @@ class UserFixtures extends Fixture
         $manager->persist($user2);
 
         $manager->flush();
+        
+        $this->addReference('admin-user', $user1);
+    }
+
+    public function getOrder()
+    {
+        return 1;
     }
 }

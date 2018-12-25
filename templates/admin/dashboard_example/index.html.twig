@@ -29,16 +29,18 @@
                 <table class="table table-hover text-center">
                     <thead>
                         <tr>
-                            <th><span>PID</span></th>
+                            <th><span>ID</span></th>
                             <th>Titre</th>
-                            <th>Archive
+                            <th>Category
                                 <br>
                                 <select class="table-filter" name="filter" data-field="archive" style="max-width: 60px">
                                     <option value="">-- Tout --</option>
-                                    <option value="7">Archives 1</option>
+                                    {% for category in categories %}
+                                    <option value="{{ category.id }}">{{ category.name }}</option>
+                                    {% endfor %}
                                 </select>
                             </th>
-                            <th>Image</th>
+                            <th>Author</th>
                             <th>Statut<br>
                                 <select class="table-filter" name="filter" data-field="status" style="max-width: 60px">
                                     <option value="">-- Tout --</option>
@@ -51,71 +53,30 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {% for article in articles %}
                         <tr>
-                            <td><a href="prospect-detail.php" class="alink">00001</a></td>
-                            <td>Praesentium qui praesentium rem qui</td>
-                            <td>Archives 1 </td>
-                            <td><img src="img/75x75.png" alt="" width="75"></td>
-                            <td><img src="img/icon-validation-check.png" alt=""></td>
-                            <td>25/04/2018</td>
+                            <td><a href="prospect-detail.php" class="alink">{{ article.id }}</a></td>
+                            <td>{{ article.title }}</td>
+                            <td>{{ article.category.name }}</td>
+                            <td>{{ article.author.username }}</td>
                             <td>
-                                <div class="td-btn"><a class="btn-icon-s" href="add-article.php"><i
-                                            class="material-icons">border_color</i></a> <a class="btn-icon-s"><i
-                                            class="fa fa-trash"></i></a></div>
+                                {% if article.status == 1 %}
+                                <img src="{{ asset('images/admin/icon-validation-check.png') }}" alt="">
+                                {% else %}
+                                <img src="{{ asset('images/admin/icon-validation-x.png') }}" alt="">
+                                {% endif %}
+                            </td>
+                            <td>{{ article.createdAt|date('d/m/Y') }}</td>
+                            <td>
+                                <div class="td-btn">
+                                <a class="btn-icon-s" href="add-article.php">
+                                <i class="material-icons">border_color</i>
+                                </a>
+                                <a class="btn-icon-s"><i class="fa fa-trash"></i></a>
+                                </div>
                             </td>
                         </tr>
-                        <tr>
-                            <td><a href="prospect-detail.php" class="alink">00001</a></td>
-                            <td>Praesentium qui praesentium rem qui</td>
-                            <td>Archives 1 </td>
-                            <td><img src="img/75x75.png" alt="" width="75"></td>
-                            <td><img src="img/icon-validation-x.png" alt=""></td>
-                            <td>25/04/2018</td>
-                            <td>
-                                <div class="td-btn"><a class="btn-icon-s" href="add-article.php"><i
-                                            class="material-icons">border_color</i></a> <a class="btn-icon-s"><i
-                                            class="fa fa-trash"></i></a></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><a href="prospect-detail.php" class="alink">00001</a></td>
-                            <td>Praesentium qui praesentium rem qui</td>
-                            <td>Archives 1 </td>
-                            <td><img src="img/75x75.png" alt="" width="75"></td>
-                            <td><img src="img/icon-validation-check.png" alt=""></td>
-                            <td>25/04/2018</td>
-                            <td>
-                                <div class="td-btn"><a class="btn-icon-s" href="add-article.php"><i
-                                            class="material-icons">border_color</i></a> <a class="btn-icon-s"><i
-                                            class="fa fa-trash"></i></a></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><a href="prospect-detail.php" class="alink">00001</a></td>
-                            <td>Praesentium qui praesentium rem qui</td>
-                            <td>Archives 1 </td>
-                            <td><img src="img/75x75.png" alt="" width="75"></td>
-                            <td><img src="img/icon-validation-check.png" alt=""></td>
-                            <td>25/04/2018</td>
-                            <td>
-                                <div class="td-btn"><a class="btn-icon-s" href="add-article.php"><i
-                                            class="material-icons">border_color</i></a> <a class="btn-icon-s"><i
-                                            class="fa fa-trash"></i></a></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><a href="prospect-detail.php" class="alink">00001</a></td>
-                            <td>Praesentium qui praesentium rem qui</td>
-                            <td>Archives 1 </td>
-                            <td><img src="img/75x75.png" alt="" width="75"></td>
-                            <td><img src="img/icon-validation-check.png" alt=""></td>
-                            <td>25/04/2018</td>
-                            <td>
-                                <div class="td-btn"><a class="btn-icon-s" href="add-article.php"><i
-                                            class="material-icons">border_color</i></a> <a class="btn-icon-s"><i
-                                            class="fa fa-trash"></i></a></div>
-                            </td>
-                        </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
