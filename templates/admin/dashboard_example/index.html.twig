@@ -1,11 +1,12 @@
 {% extends 'admin/layout/base.html.twig' %}
 
+{% block dashboard_active %}{{ 'active' }}{% endblock %}
+
 {% block content %}
 
 <div class="container-fluid">
     <div class="row panel-heading-top mb-4">
-        <div class="col-4"><a class="btn btn-primary btn-round" href="add-article.php"> + Ajouter Un
-                Nouvel Article </a></div>
+        <div class="col-4"><a class="btn btn-primary btn-round" href="{{ path('admin_create_article') }}"> + {% trans %}Add new Article{% endtrans %} </a></div>
         <div class="col-8 top-filter">
             <div class="pull-right">
                 <form class="form-inline form-filter-top ">

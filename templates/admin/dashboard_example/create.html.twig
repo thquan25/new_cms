@@ -1,0 +1,88 @@
+{% extends 'admin/layout/base.html.twig' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">AJOUTER UN NOUVEL ARTICLE</h4>
+        </div>
+        <div class="card-body p-lg-4">
+            <form action="">
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-sm-2 control-label">Category <star class="star">*</star></label>
+                    <div class="col-sm-10">
+                        <select class="custom-select form-control" name="group_id" required="">
+                            <option value="">-- Category --</option>
+                            <option value="7">Category 1</option>
+                        </select>
+                        <span class="error" for="#sl_article_group" style="display: none;">Veuillez sélectionner un groupe pour cet article!</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-sm-2 control-label">Titre <star class="star">*</star></label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" maxlength="100" name="title" id="title" value="" required="">
+                        <!--<small class="form-text text-muted">small text muted</small>-->
+                        <span class="error" for="#title" style="display: none;">S'il vous plaît insérez le titre pour cet article!</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-sm-2 control-label">Description </label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control"  <textarea name="editor" id="editor" style="">
+                            
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group mb-4">
+                <div class="row">
+                    <label class="col-sm-2 control-label">Image</label>
+                    <div class="col-sm-10">
+                        <div class="input-group form-control-file">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Télécharger</span>
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile01" accept="image/*" name="image">
+                                <label class="custom-file-label" for="inputGroupFile01">Sélectionnez votre image</label>
+                            </div>
+                        </div>
+                        <span class="error" id="error-file-type" style="display: none;">Sélectionnez votre image.</span>
+                        <div style="max-width: 150px; margin-top: 20px;" class="text-center">
+                            <img src="" id="img-preview" style="display: none;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-sm-2 control-label">Status </label>
+                    <div class="col-sm-10">
+                        <input type="checkbox" name="status" value="1">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-sm-2 control-label"></label>
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary btn-icon"> <i class="fa fa-floppy-o" aria-hidden="true"></i> </button>
+                    </div>
+                </div>
+            </div>
+            
+            </form>
+        </div>
+        <!-- card-body -->
+    </div>
+    <!-- /.card -->
+</div>
+{% endblock %}
