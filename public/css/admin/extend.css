@@ -1,0 +1,263 @@
+.login-content .form-group .form-control {
+    font-size: .85rem;
+}
+
+.login-content .form-group .icon {
+    top: 6px;
+}
+
+.login-content .button-login {
+    background-color: #d63222 !important;
+    border-color: #d63222 !important;
+    font-weight: bold;
+}
+
+.login-content .button-login:hover {
+    background-color: #a51103 !important;
+}
+
+.help-block {
+    font-style: italic;
+}
+
+#data-table_filter, #data-table_info,#data-table_length
+{
+    display: none;
+}
+
+table.dataTable
+{
+    margin-top: 0 !important;
+    margin-bottom: 0;
+}
+
+.table th
+{
+    border-top: 0;
+}
+
+ul.pagination
+{
+    margin-bottom: 0;
+}
+
+.page-item.disabled a i {
+    color: #b3b3b3;
+}
+
+.sorting_desc:before, .sorting_asc:before {
+    content: ''
+}
+
+span.sort {
+    cursor: pointer;
+}
+
+th.has-sort {
+    cursor: pointer;
+}
+
+table img {
+    max-width: 100px;
+}
+
+table.dataTable thead .sorting:before, table.dataTable thead .sorting_asc:before, table.dataTable thead .sorting_desc:before, table.dataTable thead .sorting_asc_disabled:before, table.dataTable thead .sorting_desc_disabled:before, table.dataTable thead .sorting:after, table.dataTable thead .sorting_asc:after, table.dataTable thead .sorting_desc:after, table.dataTable thead .sorting_asc_disabled:after, table.dataTable thead .sorting_desc_disabled:after {
+    display: none;
+}
+
+/*table.dataTable thead>tr>th.sorting_asc, table.dataTable thead>tr>th.sorting_desc, table.dataTable thead>tr>th.sorting, table.dataTable thead>tr>td.sorting_asc, table.dataTable thead>tr>td.sorting_desc, table.dataTable thead>tr>td.sorting {
+    padding: 0 !important;
+}*/
+
+/** Scroll to top **/
+.cd-top.cd-top--show {
+ /* the button becomes visible */
+ visibility: visible;
+ opacity: 1;
+}
+
+.cd-top.cd-top--fade-out {
+ /* if the user keeps scrolling down, the button is out of focus and becomes less visible */
+ opacity: .5;
+}
+
+/* Custom confirm */
+.pagination .page-item.active > .page-link {
+    /* background-color: #2f3490; */
+    border-color: #2f3490;
+}
+
+.pagination .page-item.active > .page-link:focus, .pagination .page-item.active > .page-link:hover {
+/*    background: #8c0e02;
+    border-color: #8c0e02;*/
+}
+
+.navbar .breadcrumb .breadcrumb-item.active {
+    color: #2f3490;
+}
+
+
+.p-label {
+    font-weight: 500;
+}
+
+.no-data-message {
+    color: #ababab;
+    font-style: italic;
+}
+
+.w-paging .col-md-7 {
+    padding-right: 0;
+}
+
+.sidebar[data-color="reddark"]:after,
+body > .navbar-collapse[data-color="reddark"]:after {
+    background: rgba(240, 194, 97, 0.35);
+}
+
+.sidebar .nav li.active > .nav-link, body > .navbar-collapse .nav li.active > .nav-link {
+    border-color: #d29922;
+    background-color: #f0c261;
+}
+
+
+
+.pagination .page-item.active > .page-link:focus, .pagination .page-item.active > .page-link:hover {
+    /* background: #000dff; */
+    /* border-color: #000dff; */
+}
+
+.full-name {
+    font-size: 1rem;
+}
+
+.detail-value {
+    color: #48c7ed;
+}
+
+/* jQuery confirm button */
+.jconfirm.jconfirm-my-theme .jconfirm-bg{
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.jconfirm.jconfirm-my-theme .jconfirm-box{
+    padding: 0 !important;
+    text-align: center;
+    border-radius: 0;
+    /*border: 1px solid #e8e8eb;*/
+}
+
+.jconfirm.jconfirm-my-theme .jconfirm-box .logo{
+    padding: 15px;
+    background-color: black;
+}
+
+.jconfirm.jconfirm-my-theme .jconfirm-box .text-content{
+    font-size: 14px;
+    padding: 10px;
+    margin-top: 5px;
+    border-bottom: 1px solid #e8e8eb;
+}
+
+.jconfirm.jconfirm-my-theme .jconfirm-box .text-data{
+    font-size: 14px;
+    text-align: left;
+    padding: 10px;
+    margin-top: 5px;
+    border-bottom: 1px solid #e8e8eb;
+}
+
+.jconfirm.jconfirm-my-theme .jconfirm-box.loading{
+}
+
+.jconfirm.jconfirm-my-theme .jconfirm-box.loading:before{
+}
+
+.jconfirm.jconfirm-my-theme .jconfirm-box.loading:after{
+}
+
+.jconfirm.jconfirm-my-theme .jconfirm-box .jconfirm-closeIcon{
+}
+
+.jconfirm.jconfirm-my-theme .jconfirm-box .jconfirm-title-c{
+}
+
+.jconfirm.jconfirm-my-theme .jconfirm-box .jconfirm-content-pane{
+}
+
+.jconfirm.jconfirm-my-theme .jconfirm-box .jconfirm-content{
+}
+
+.jconfirm.jconfirm-my-theme .jconfirm-box .jconfirm-buttons{
+}
+
+.jconfirm.jconfirm-my-theme .jconfirm-box .jconfirm-buttons button{
+}
+
+.jconfirm .jconfirm-box .jconfirm-buttons button.btn-blue{
+    background-color: #2f3490;
+}
+
+.jconfirm .jconfirm-box .jconfirm-buttons button.btn-blue:hover {
+    background-color: #000dff;
+}
+
+.form-check input[type="radio"]:checked + .label-text:before {
+    border-color: #2f3490;
+}
+
+.form-check input[type="radio"]:checked + .label-text:after {
+    background-color: #2f3490;
+}
+
+.required-feedback, .error-feedback {
+    color: red;
+    font-size: 10px;
+    font-style: italic;
+}
+
+.title-collapse, .title-collapse .fa, .title-collapse:focus {
+    color: #2f349e;
+}
+
+/*cms*/
+.fa-check-circle-o {
+  color: green;
+}
+
+.fa-times-circle {
+  color: red;
+}
+
+.table-filter {
+  font-size: 12px;
+}
+
+#img-preview {
+    max-width: 200px;
+}
+
+.form-control-file .custom-file-label:after {
+    content: "Parcourir";
+    cursor: pointer;
+}
+
+.no-data {
+    color: #ababab;
+    font-style: italic;
+}
+
+table.dataTable ,
+ .card table.dataTable  tbody td:last-child, 
+ .card table.dataTable  thead th:last-child {border-right: none;}
+.dataTables_wrapper  .row:first-child {
+    display: none;
+}
+
+a.btn-icon-s.view_btn {
+    color: black;
+}
+
+.break-text {
+    word-break: break-all;
+}

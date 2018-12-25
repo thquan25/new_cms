@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {{ include('admin/layout/head.html.twig') }}
+    </head>
+
+    <body>
+        <div class="wrapper">
+            {{ include('admin/layout/sidebar.html.twig') }}
+
+            <div class="main-panel">
+                {{ include('admin/layout/top_nav.html.twig') }}
+                
+                <div class="content">
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+        </div>
+        <!-- start Modal -->
+        <div class="modal fade modal-global-msg" id="addProspect" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <img class="logo-img" src="img/logo-full.png" alt="" width="200">
+                    </div>
+                    <div class="modal-body px-lg-5">
+                        <h4 class="modal-title">Ajouter un prospect</h4>
+                        <form>
+                            <div class="row">
+                                <div class="col-lg-7 ">
+                                    <div class="form-group">
+                                        <label class="label-weight">Sexe</label>
+                                        <div class="check-inline">
+                                            <div class="form-check first">
+                                                <label class="">
+                                                    <input type="radio" name="entree-scolaire"> <span class="label-text">Homme</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <label class="">
+                                                    <input type="radio" name="entree-scolaire"> <span class="label-text">Femme</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-6 col-sm-4 form-group">
+                                            <label class="label-weight">Nom</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <div class="col-6 col-sm-4 form-group">
+                                            <label class="label-weight">Prénom</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <div class="col-sm-4 form-group">
+                                            <label class="label-weight">Date de naissance</label>
+                                            <input type="text" class="form-control js-datepicker-d" placeholder="jj/mm/aaaa">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-4 form-group">
+                                            <label class="label-weight">Email</label>
+                                            <input type="email" class="form-control">
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label class="label-weight">Confirmation email</label>
+                                            <input type="email" class="form-control">
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label class="label-weight">Téléphone</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-4 form-group">
+                                            <label class="label-weight">Pays de résidence</label>
+                                            <select class="custom-select form-control">
+                                                <option>#option#</option>
+                                                <option>#option#</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label class="label-weight">Nationalité</label>
+                                            <select class="custom-select form-control">
+                                                <option>#option#</option>
+                                                <option>#option#</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label class="label-weight">Entrée scolaire</label>
+                                            <select class="custom-select form-control">
+                                                <option hidden>--</option>
+                                                <option>Octobre 2018</option>
+                                                <option>Octobre 2019</option>
+                                                <option>Octobre 2020</option>
+                                                <option>Octobre 2021</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-5 pl-lg-5 line-divi-left">
+                                    <div class="form-group">
+                                        <label class="label-weight">Programme </label>
+                                        <div class="list-programmes">
+                                            <label class="custom-control custom-checkbox style-line">
+                                                <input type="checkbox" class="custom-control-input" id="">
+                                                <span class="custom-control-label" for=""> Bachelor Immobilier (Bac+2
+                                                    validé)</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox style-line">
+                                                <input type="checkbox" class="custom-control-input" id="">
+                                                <span class="custom-control-label" for=""> Bachelor Financia 1 an (Bac+2
+                                                    validé)</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox style-line">
+                                                <input type="checkbox" class="custom-control-input" id="">
+                                                <span class="custom-control-label" for=""> MBA 1 Conformité et Régulation /
+                                                    Expertise Juridique &amp; Financière</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox style-line">
+                                                <input type="checkbox" class="custom-control-input" id="">
+                                                <span class="custom-control-label" for=""> MBA 1 Analyse des Marchés et
+                                                    Gestion des Risques Financiers</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox style-line">
+                                                <input type="checkbox" class="custom-control-input" id="">
+                                                <span class="custom-control-label" for=""> MBA 2 Finance de Marché &amp;
+                                                    Numérique</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox style-line">
+                                                <input type="checkbox" class="custom-control-input" id="">
+                                                <span class="custom-control-label" for=""> MBA 2 Finance d'Entreprise,
+                                                    Fusion &amp; Acquisition, Banque d'Affaires</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox style-line">
+                                                <input type="checkbox" class="custom-control-input" id="">
+                                                <span class="custom-control-label" for=""> MBA 2 Compliance Banque Finance
+                                                    Assurance</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox style-line">
+                                                <input type="checkbox" class="custom-control-input" id="">
+                                                <span class="custom-control-label" for=""> MBA 2 Gestion de Patrimoine
+                                                    &amp; Family Office</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox style-line">
+                                                <input type="checkbox" class="custom-control-input" id="">
+                                                <span class="custom-control-label" for=""> MBA 2 Immobilier International</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-center py-2">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                <button type="button" class="btn btn-primary ml-2" data-dismiss="modal">VALIDER</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- #addProspect -->
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
+        <script src="{{ asset('js/admin/ui-dashboard.js') }}"></script>
+
+        <!-- DATAPICKER -->
+        <script src="{{ asset('js/plugins/bootstrap-datepicker.min.js') }}"></script>
+        <script type="text/javascript">
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip();
+
+                // js DATAPICKER
+                $('.js-datepicker-d').datepicker({
+                    locale: 'fr',
+                    format: "dd/mm/yyyy"
+                });
+            });
+        </script>
+    </body>
+</html>

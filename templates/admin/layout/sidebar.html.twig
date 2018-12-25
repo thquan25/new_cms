@@ -1,0 +1,49 @@
+<div data-color="reddark" class="sidebar">
+    <div class="sidebar-wrapper">
+        <div class="logo">
+            <a href="#" class="simple-text">
+                <div class="logo-img"><img src="{{ asset('images/admin/logo-neuillytech.png') }}" alt=""></div>
+            </a>
+        </div>
+        <ul class="nav">
+            <li class="">
+                <a href="#" class="nav-link">
+                    <i aria-hidden="true" class="fa fa-tachometer"></i>
+                    <p>Tableau de bord</p>
+                </a>
+            </li>
+            <li class="active">
+                <a  class="nav-link" data-toggle="collapse" href="#statistique" aria-expanded="false">
+                    <i aria-hidden="true" class="fa fa-newspaper-o"></i>
+                    <p>Actualités</p>
+                    <b class="caret"></b>
+                </a>
+                <div class="collapse" id="statistique">
+                    <ul class="nav"> 
+                        <li>
+                            <a class="nav-link" href="articles.php"><span class="sidebar-normal"> Articles </span></a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#"><span class="sidebar-normal"> Archives </span></a>
+                        </li> 
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            {% if is_granted('ROLE_SUPER_ADMIN') %}
+            <li class="">
+                <a href="#" class="nav-link">
+                    <i aria-hidden="true" class="fa fa-sign-out"></i>
+                    <p>Settings</p>
+                </a>
+            </li>
+            {% endif %}
+            <li class="">
+                <a href="#" class="nav-link">
+                    <i aria-hidden="true" class="fa fa-sign-out"></i>
+                    <p>Déconnexion</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

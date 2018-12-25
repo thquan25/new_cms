@@ -1,0 +1,153 @@
+{% extends 'admin/layout/base.html.twig' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row panel-heading-top mb-4">
+        <div class="col-4"><a class="btn btn-primary btn-round" href="add-article.php"> + Ajouter Un
+                Nouvel Article </a></div>
+        <div class="col-8 top-filter">
+            <div class="pull-right">
+                <form class="form-inline form-filter-top ">
+                    <div class="form-group"><input type="text" value="" placeholder="" class="form-control"></div>
+                    <div class="form-group form-group-primary ml-2">
+                        <select class="custom-select select-style-second form-control">
+                            <option value="title">Titre</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-icon ml-2"><i class="material-icons">search</i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- /.panel-heading-top -->
+
+    <div class="card no-border-p0">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover text-center">
+                    <thead>
+                        <tr>
+                            <th><span>PID</span></th>
+                            <th>Titre</th>
+                            <th>Archive
+                                <br>
+                                <select class="table-filter" name="filter" data-field="archive" style="max-width: 60px">
+                                    <option value="">-- Tout --</option>
+                                    <option value="7">Archives 1</option>
+                                </select>
+                            </th>
+                            <th>Image</th>
+                            <th>Statut<br>
+                                <select class="table-filter" name="filter" data-field="status" style="max-width: 60px">
+                                    <option value="">-- Tout --</option>
+                                    <option value="1">Actif</option>
+                                    <option value="0">Inactif</option>
+                                </select>
+                            </th>
+                            <th>Date de création </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="prospect-detail.php" class="alink">00001</a></td>
+                            <td>Praesentium qui praesentium rem qui</td>
+                            <td>Archives 1 </td>
+                            <td><img src="img/75x75.png" alt="" width="75"></td>
+                            <td><img src="img/icon-validation-check.png" alt=""></td>
+                            <td>25/04/2018</td>
+                            <td>
+                                <div class="td-btn"><a class="btn-icon-s" href="add-article.php"><i
+                                            class="material-icons">border_color</i></a> <a class="btn-icon-s"><i
+                                            class="fa fa-trash"></i></a></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><a href="prospect-detail.php" class="alink">00001</a></td>
+                            <td>Praesentium qui praesentium rem qui</td>
+                            <td>Archives 1 </td>
+                            <td><img src="img/75x75.png" alt="" width="75"></td>
+                            <td><img src="img/icon-validation-x.png" alt=""></td>
+                            <td>25/04/2018</td>
+                            <td>
+                                <div class="td-btn"><a class="btn-icon-s" href="add-article.php"><i
+                                            class="material-icons">border_color</i></a> <a class="btn-icon-s"><i
+                                            class="fa fa-trash"></i></a></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><a href="prospect-detail.php" class="alink">00001</a></td>
+                            <td>Praesentium qui praesentium rem qui</td>
+                            <td>Archives 1 </td>
+                            <td><img src="img/75x75.png" alt="" width="75"></td>
+                            <td><img src="img/icon-validation-check.png" alt=""></td>
+                            <td>25/04/2018</td>
+                            <td>
+                                <div class="td-btn"><a class="btn-icon-s" href="add-article.php"><i
+                                            class="material-icons">border_color</i></a> <a class="btn-icon-s"><i
+                                            class="fa fa-trash"></i></a></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><a href="prospect-detail.php" class="alink">00001</a></td>
+                            <td>Praesentium qui praesentium rem qui</td>
+                            <td>Archives 1 </td>
+                            <td><img src="img/75x75.png" alt="" width="75"></td>
+                            <td><img src="img/icon-validation-check.png" alt=""></td>
+                            <td>25/04/2018</td>
+                            <td>
+                                <div class="td-btn"><a class="btn-icon-s" href="add-article.php"><i
+                                            class="material-icons">border_color</i></a> <a class="btn-icon-s"><i
+                                            class="fa fa-trash"></i></a></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><a href="prospect-detail.php" class="alink">00001</a></td>
+                            <td>Praesentium qui praesentium rem qui</td>
+                            <td>Archives 1 </td>
+                            <td><img src="img/75x75.png" alt="" width="75"></td>
+                            <td><img src="img/icon-validation-check.png" alt=""></td>
+                            <td>25/04/2018</td>
+                            <td>
+                                <div class="td-btn"><a class="btn-icon-s" href="add-article.php"><i
+                                            class="material-icons">border_color</i></a> <a class="btn-icon-s"><i
+                                            class="fa fa-trash"></i></a></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+    <div class="ft-plain pb-3">
+        <div class="d-flex align-items-center">
+            <div class="form-inline ml-auto">
+                <label>
+                    Affichage
+                    <select class="custom-select form-control form-control-sm mx-2">
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                    sur 1027 items par page
+                </label>
+            </div>
+            <div class="w-paging ml-4">
+                <ul class="pagination mb-0">
+                    <li class="page-item"><a href="#" aria-label="First" class="page-link"><i class="fa fa-step-backward"></i></a></li>
+                    <li class="page-item"><a href="#" class="page-link"><i class="fa fa-caret-left"></i></a></li>
+                    <li class="page-item"><a href="#" class="page-link">1</a></li>
+                    <li class="page-item active"><a href="#" class="page-link">2</a></li>
+                    <li class="page-item"><a href="#" class="page-link">3</a></li>
+                    <li class="page-item"><a href="#" class="page-link"><i class="fa fa-caret-right"></i></a></li>
+                    <li class="page-item"><a href="#" aria-label="Last" class="page-link"><i class="fa fa-step-forward"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

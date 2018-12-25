@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    {{ include('security/head_login.html.twig') }}
+    <body class="login-page">
+    	<div class="wrapper_page"> 
+    		<header class="header-cms h_login">
+                <div class="container">
+                    <img class="img-logo" src="{{ asset('images/admin/logo-neuillytech-login.png') }}" alt=""><br>
+                    <h1 class="txtcms">Content management system</h1>
+                </div>
+            </header> 
+            <main class="main-content">
+                {% block body %}{% endblock %}
+            </main>
+    	</div><!--/.wrapper_page--> 
+    </body>
+</html>

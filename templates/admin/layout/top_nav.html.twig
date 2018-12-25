@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">  
+        <nav aria-label="breadcrumb" class="nav-breadcrumb d-lg-flex">
+            <ol class="breadcrumb">  
+            <li class="breadcrumb-item active" aria-current="page"><h3 class="my-4">{{ breadcrumb }}</h3></li>
+            </ol>
+        </nav>
+        <button type="button" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><span class="navbar-toggler-bar burger-lines"></span> <span class="navbar-toggler-bar burger-lines"></span> <span class="navbar-toggler-bar burger-lines"></span></button> 
+        <div class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a href="#" class="nav-link wellcome-item">
+                    Bonjour {{ app.user.email }}
+                </a>
+            </li>
+            <li aria-haspopup="true" class="nav-item  dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle nav-link"><i class="svg-icon svg-user-set"></i> <span class="no-icon"></span></a> 
+                <ul class="dropdown-menu dropdown-menu-right"><a href="#" class="dropdown-item">Action</a> <a href="#" class="dropdown-item">Another action</a> <a href="#" class="dropdown-item">Something else here</a></ul>
+            </li>
+            </ul>
+        </div>
+    </div>
+</nav>

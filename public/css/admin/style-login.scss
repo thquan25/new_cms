@@ -1,0 +1,171 @@
+@charset "UTF-8"; 
+/* * Basic Structure
+ * ----------------------------------------------- */ 
+ 
+
+/* -----------------------------------------------
+  	#General Variables SCSS
+   ----------------------------------------------- */
+/*Text colors*/ 
+$colorBodyText:  #333333;
+$colorPrimary:   #f0c261;
+$colorTextPrimary: #D63222;
+$colorSecondary: #e66830;
+$colorLight: #838487;
+$colorWarning: #e21b1b;
+$colorPrimary-hover:   #d29922;
+
+/* Backgrounds*/
+$bgPrimary: #f44500;
+$bgSecondary: #187697;
+$bgLight: #f9f9f9; 
+
+/* Border colors*/ 
+$clBorder: #c3c3c3; 
+
+
+/* FONTS */ 
+$font-body: 'Lato', Helvetica, Arial,sans-serif; 
+$FontAwesome: FontAwesome; 
+$FontLine: 'Linearicons';   
+ 
+/*======= #mixin ======= */ 
+$radius: 3px;
+$radiusCircle: 50%;
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+} 
+
+button {outline: 0; border: 0; }
+.trans {
+	-webkit-transition: all 0.25s ease-in-out;
+	-moz-transition: all 0.25s ease-in-out;
+	-ms-transition: all 0.25s ease-in-out;
+	-o-transition: all 0.25s ease-in-out;
+	transition: all 0.25s ease-in-out;
+}
+/*======= #BASIC ======= */ 
+body {font-family: $font-body; font-size: 14px; line-height: 1.45em}
+a { color: #3c3c3c;
+	&:hover {text-decoration: none; }
+} 
+p {margin-bottom: 10px;}
+img {max-width: 100%; } 
+
+
+//FORM GLOBAL
+// .form-control {box-shadow: none ; @include border-radius(2px); max-width: 100%;}
+input[readonly] {
+    &:focus {outline: none;  box-shadow: none}
+} 
+.custom-checkbox-radio input[disabled]+label:before,
+.custom-checkbox-radio input[disabled]+label:after{opacity: .65} 
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {font-size: 13px;}
+.input-themes[readonly] {font-style: italic}
+
+/* ICONS http://www.cssportal.com/css-sprite-generator/# */  
+  
+
+/*----------------------- HELP-ER ----------------------- */ 
+.clearfix:after {visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0;}
+.clearfix { display: inline-block;} 
+* html .clearfix { height: 1%;}
+.clearfix { display: block;} 
+.d-flex { display: flex;}
+.column-flex-center { display: flex; flex-flow: column; align-items: center;   }
+.align-items-center { align-items: center;}
+.text-danger {color: #d50000;}
+.error-message { font-size: .9em; color: #d50000;  margin-bottom: 10px; margin-bottom: 10px; margin-top: 5px;}
+.wfull {width: 100%;}
+
+
+// BUTTONs
+.btn-primary { background-color: $colorPrimary; border-color: $colorPrimary;
+    &:hover {background-color: $colorPrimary-hover; border-color: $colorPrimary-hover;color:#fff; }
+}
+button {background-color:#30333e; color:#fff; 
+    &:hover {background-color:#bebebe}
+}
+   
+.alert {padding-top: 10px; padding-bottom: 10px; position: relative;  margin-bottom: 15px;
+    // padding-left: 80px;
+    .icon { position:absolute; top: 50%; margin-top: -12px; left: 25px; }
+}
+ // VALID-STYLE
+.has-error {
+    .control-label {color: $colorBodyText;}
+    .form-control,
+    .sol-inner-container ,
+    .chosen-container-single .chosen-single { border-color: #d50000;}
+}
+
+/*----------------------- HEADER ----------------------- */ 
+.txtcms {font-size: 18px; color: $colorPrimary; display: inline-block; border: 1px solid $colorPrimary; margin: 0; padding: 8px 10px; text-transform: uppercase } 
+.header-cms {  
+	&.h_login {text-align: center;padding: 30px 0; margin-bottom: 10px}
+    .logo-center {  }
+    .img-logo {  margin: 15px auto}
+    a:hover {color: $colorPrimary} 
+}
+
+.head-right {display: flex; justify-content: flex-end;
+    .iconify { display: inline-block;  
+        transition: all 0.25s ease;vertical-align: top;width: 80px; height: 80px; vertical-align: middle;  
+        position: relative; position: relative; line-height: 44px;  
+        .sprite { position:absolute; left: 0; top: 0;right: 0; bottom: 0; margin: auto;} 
+        &.noti-user {border-color: rgba(199, 199, 199, 0.2); }
+        .noti {display: inline-block; width: 100%; height: 100%;position: relative; z-index: 1; border-right: 1px solid #e2e1e9; 
+            &:hover { background: #f3f3f3;}
+        }
+        .label { z-index: 1; background-color: #e76831; @include border-radius(50%); position: absolute; right: 17px;top: 17px; line-height: 24px; min-width: 24px;
+            display: inline-block; padding: 0; font-size: .75em; font-weight: 300;  
+            &:hover { color:#fff; background: $colorPrimary;}
+        } 
+        &:first-child {
+            .noti {border-left: 1px solid #e2e1e9; }
+        } 
+    }
+}
+
+ 
+   
+.login-content .form-group { position: relative;
+    .form-control { padding-left: 40px;}
+    .icon { position: absolute; top: 10px; left: 8px; right: auto; width: 40px;  font-size: 20px; color: #757575;}
+} 
+
+/*----------------------- LOGIN CMS ----------------------- */  
+.login-content { background: #53411d;  padding: 60px 0 60px 0;
+    .form-group { margin-bottom: 20px; }
+    .alert {padding-left: 75px;}
+}
+.block-form-center {width: 550px; max-width: 100%; margin: 0 auto ;     
+	.form-sms {padding: 40px 30px; 
+        @include border-radius(10px);  background-color:#fff;
+        -webkit-box-shadow: 0 6px 9px rgba(65,65,65,.4);
+        -moz-box-shadow: 0 6px 9px rgba(65,65,65,.4);
+        box-shadow: 0 6px 9px rgba(65,65,65,.4);
+    }    
+    .wp_f_login {margin-top: 5px;}   
+}
+
+
+.label_read {
+  label {color:  $colorPrimary; font-weight: normal; font-size: .9em; position: relative; padding-left: 22px; cursor: pointer; user-select: none; -webkit-font-smoothing: antialiased;
+    -webkit-backface-visibility: hidden; 
+  }
+  input {display: none; }
+  label:before {
+    content: ' '; display: inline-block;  width: 15px; height: 15px; border: 1px solid $colorPrimary; position: absolute;left: 0; top: 3px; 
+    border-radius: 2px; text-align: center; line-height: 28px; color: $colorPrimary;
+  }
+  label:after {
+    font: normal normal normal 10px/1 FontAwesome; content: "\f00c"; display: inline-block; position: absolute; left:3px; top:5px; text-align: center;
+     transform: scale(2,2); opacity: 0; transition: all .4s;
+  }
+  input:checked+label:after {color: $colorPrimary; transform: scale(1,1); opacity: 1;}
+}
+
+ 
