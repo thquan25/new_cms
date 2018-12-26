@@ -17,7 +17,7 @@
                     <div class="form-group"><input type="text" value="" placeholder="" class="form-control"></div>
                     <div class="form-group form-group-primary ml-2">
                         <select class="custom-select select-style-second form-control">
-                            <option value="title">Titre</option>
+                            <option value="title">{% trans %}Title{% endtrans %}</option>
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary btn-icon ml-2"><i class="material-icons">search</i></button>
@@ -34,25 +34,25 @@
                     <thead>
                         <tr>
                             <th class="has-sort"><span>ID</span></th>
-                            <th>Titre</th>
-                            <th>Category
+                            <th>{% trans %}Title{% endtrans %}</th>
+                            <th>{% trans %}Category{% endtrans %}
                                 <br>
                                 <select class="table-filter" name="filter" data-field="archive" style="max-width: 60px">
-                                    <option value="">-- Tout --</option>
+                                    <option value="">-- {% trans %}All{% endtrans %} --</option>
                                     {% for category in categories %}
                                     <option value="{{ category.id }}">{{ category.name }}</option>
                                     {% endfor %}
                                 </select>
                             </th>
-                            <th>Author</th>
-                            <th>Statut<br>
+                            <th>{% trans %}Author{% endtrans %}</th>
+                            <th>{% trans %}Status{% endtrans %}<br>
                                 <select class="table-filter" name="filter" data-field="status" style="max-width: 60px">
-                                    <option value="">-- Tout --</option>
-                                    <option value="1">Actif</option>
-                                    <option value="0">Inactif</option>
+                                    <option value="">-- {% trans %}All{% endtrans %} --</option>
+                                    <option value="1">{% trans %}Active{% endtrans %}</option>
+                                    <option value="0">{% trans %}Inactive{% endtrans %}</option>
                                 </select>
                             </th>
-                            <th class="has-sort">Date de création </th>
+                            <th class="has-sort">{% trans %}Created date{% endtrans %} </th>
                             <th></th>
                         </tr>
                     </thead>
@@ -92,7 +92,7 @@
         <div class="d-flex align-items-center">
             <div class="form-inline ml-auto">
                 <label>
-                    Affichage
+                    {% trans %}Show{% endtrans %}
                     <select class="custom-select form-control form-control-sm mx-2">
                         <option value="50">50</option>
                         <option value="100">100</option>

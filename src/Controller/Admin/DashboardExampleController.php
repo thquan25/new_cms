@@ -8,24 +8,18 @@ use App\Entity\User;
 use App\Entity\Article;
 use App\Entity\ArticleCategory;
 use Symfony\Component\HttpFoundation\Request;
+use App\Repository\ArticleRepository;
 
 class DashboardExampleController extends AbstractController
 {
     private $title = "Example CMS - Dashboard";
     private $breadcrumb = "Dashboard";
 
-    private $categories = null;
-
     /**
      * Config variables for display data table
      * Change them for your purpose
      */
     private $numberOfItems = 20;
-
-    public function __construct()
-    {
-        $this->categories = $this->getDoctrine()->getRepository(ArticleCategory::class)->findAll();
-    }
 
     /**
      * @Route("/admin", name="admin_dashboard")
@@ -58,7 +52,12 @@ class DashboardExampleController extends AbstractController
     /**
      * @Route("/admin/dashboard/store", name="admin_store_article")
      */
-    public function store(Request $request)
+    public function store()
     {
+        $request = Request::createFromGlobals();
+        dump($request->getParameters());
+        die;
+        $articleRepository = new ArticleRepository();
+        $articleRepository->addFromRequest($request);
     }
 }
