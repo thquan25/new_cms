@@ -2,6 +2,10 @@
 
 {% block dashboard_active %}{{ 'active' }}{% endblock %}
 
+{% block extended_css %}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+{% endblock %}
+
 {% block content %}
 
 <div class="container-fluid">
@@ -26,10 +30,10 @@
     <div class="card no-border-p0">
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-hover text-center">
+                <table class="table table-hover text-center" id="data-table">
                     <thead>
                         <tr>
-                            <th><span>ID</span></th>
+                            <th class="has-sort"><span>ID</span></th>
                             <th>Titre</th>
                             <th>Category
                                 <br>
@@ -48,13 +52,13 @@
                                     <option value="0">Inactif</option>
                                 </select>
                             </th>
-                            <th>Date de création </th>
+                            <th class="has-sort">Date de création </th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for article in articles %}
-                        <tr>
+                        <tr id="article-{{ article.id }}">
                             <td><a href="prospect-detail.php" class="alink">{{ article.id }}</a></td>
                             <td>{{ article.title }}</td>
                             <td>{{ article.category.name }}</td>
@@ -111,5 +115,22 @@
     </div>
 </div>
 
+{% endblock %}
+
+{% block javascripts %}
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        var data_table = $('#data-table').DataTable({
+            ordering: false,
+            paging: false
+        });
+
+        $('#data-table').on('click', 'th.has-sort', function() {
+            var index_of_this_column = $(this).index();
+            console.log(index_of_this_column);
+        });
+    });
+</script>
 {% endblock %}
 
