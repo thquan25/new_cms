@@ -19,12 +19,6 @@ class ArticleRepository extends ServiceEntityRepository
         parent::__construct($registry, Article::class);
     }
 
-    public function addFromRequest($request)
-    {
-        dump($request);
-        die;
-    }
-
     // /**
     //  * @return Article[] Returns an array of Article objects
     //  */

@@ -9,22 +9,22 @@
             <li class="{% block dashboard_active %}{% endblock %}">
                 <a href="{{ path('admin_dashboard') }}" class="nav-link">
                     <i aria-hidden="true" class="fa fa-tachometer"></i>
-                    <p>Tableau de bord</p>
+                    <p>{% trans %}Dashboard{% endtrans %}</p>
                 </a>
             </li>
             <li class="{% block articles_active %}{% endblock %}">
                 <a  class="nav-link" data-toggle="collapse" href="#statistique" aria-expanded="false">
                     <i aria-hidden="true" class="fa fa-newspaper-o"></i>
-                    <p>Actualités</p>
+                    <p>{% trans %}Blog{% endtrans %}</p>
                     <b class="caret"></b>
                 </a>
                 <div class="collapse" id="statistique">
                     <ul class="nav"> 
                         <li>
-                            <a class="nav-link" href="articles.php"><span class="sidebar-normal"> Articles </span></a>
+                            <a class="nav-link" href="articles.php"><span class="sidebar-normal"> {% trans %}Articles{% endtrans %} </span></a>
                         </li>
                         <li>
-                            <a class="nav-link" href="#"><span class="sidebar-normal"> Archives </span></a>
+                            <a class="nav-link" href="#"><span class="sidebar-normal"> {% trans %}Category{% endtrans %} </span></a>
                         </li>
                     </ul>
                 </div>
@@ -33,14 +33,14 @@
             <li class="">
                 <a href="#" class="nav-link">
                     <i aria-hidden="true" class="fa fa-sign-out"></i>
-                    <p>Settings</p>
+                    <p>{% trans %}Settings{% endtrans %}</p>
                 </a>
             </li>
             {% endif %}
             <li class="">
                 <a href="/logout" class="nav-link">
                     <i aria-hidden="true" class="fa fa-sign-out"></i>
-                    <p>Déconnexion</p>
+                    <p>{% trans %}Logout{% endtrans %}</p>
                 </a>
             </li>
         </ul>

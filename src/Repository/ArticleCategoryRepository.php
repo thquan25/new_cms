@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\ArticleCategory;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use Symfony\Component\Validator\Validation;
 
 /**
  * @method ArticleCategory|null find($id, $lockMode = null, $lockVersion = null)

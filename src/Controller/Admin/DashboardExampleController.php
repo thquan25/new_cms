@@ -41,7 +41,11 @@ class DashboardExampleController extends AbstractController
      */
     public function create()
     {
-        $categories = $this->getDoctrine()->getRepository(ArticleCategory::class)->findAll();
+        $categories = $this->getDoctrine()
+            ->getRepository(ArticleCategory::class)
+            ->findBy(
+                ['status' => 1]
+            );
         return $this->render('admin/dashboard_example/create.html.twig', array(
             'title' => $this->title,
             'breadcrumb' => $this->breadcrumb . ' - Create article',
@@ -52,12 +56,22 @@ class DashboardExampleController extends AbstractController
     /**
      * @Route("/admin/dashboard/store", name="admin_store_article")
      */
-    public function store()
+    public function store(Request $request)
     {
-        $request = Request::createFromGlobals();
-        dump($request->getParameters());
-        die;
-        $articleRepository = new ArticleRepository();
-        $articleRepository->addFromRequest($request);
+        // TODO: Validate request first
+        $article = new Article();
+        $article->setTitle($request->get('title'));
+        $article->setSlug($request->get('title'));
+        $article->setDescription($request->get('description', ''));
+        $article->setContent($request->get('content'));
+        $article->setStatus($request->get('status', 0));
+        $article->setAuthor($this->getUser());
+        $categoryId = (int)$request->get('category', 0);
+        $article->setCategory($this->getDoctrine()->getRepository(ArticleCategory::class)->find($categoryId));
+
+        $manager = $this->getDoctrine()->getManager();
+        $manager->persist($article);
+        $manager->flush();
+        // End here 27/12/2018
     }
 }

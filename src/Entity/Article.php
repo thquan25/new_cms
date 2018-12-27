@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
@@ -18,6 +19,11 @@ class Article
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @assert\Length(
+     *  max = 255,
+     *  maxMessage = "Title can not be longer than {{ limit }} characters"
+     * )
      */
     private $title;
 
@@ -62,6 +68,11 @@ class Article
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $image;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+    }
 
     public function getId(): ?int
     {
