@@ -7,14 +7,14 @@
             <h4 class="card-title">AJOUTER UN NOUVEL ARTICLE</h4>
         </div>
         <div class="card-body p-lg-4">
-            <form action="{{ path('admin_store_article') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ path('admin_store_article') }}" method="post" enctype="multipart/form-data" id="form-add-article">
                 <div class="form-group">
                     <input type="hidden" name="token" value="{{ csrf_token('add-article') }}">
                     <div class="row">
-                        <label class="col-sm-2 control-label">{% trans %}Category{% endtrans %} <star class="star">*</star></label>
+                        <label class="col-sm-2 control-label">{{ "Category"|trans }} <star class="star">*</star></label>
                         <div class="col-sm-4">
-                            <select class="custom-select form-control" name="group_id" required="">
-                                <option value="">-- {% trans %}Category{% endtrans %} --</option>
+                            <select class="custom-select form-control" name="category_id" required="">
+                                <option value="">-- {{ "Category"|trans }} --</option>
                                 {% for category in categories %}
                                 <option value="{{ category.id }}">{{ category.name }}</option>    
                                 {% endfor %}
@@ -22,15 +22,15 @@
                             <span class="error" for="#sl_article_group" style="display: none;">Veuillez sélectionner un groupe pour cet article!</span>
                         </div>
                         <div class="col-sm-6">
-                            <button type="submit" class="btn btn-primary btn-icon" id="btn-add-category">{% trans %}Add{% endtrans %}</button>
+                            <button type="submit" class="btn btn-primary btn-icon" id="btn-add-category">{{ "Add"|trans }}</button>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="row">
-                        <label class="col-sm-2 control-label">{% trans %}Title{% endtrans %} <star class="star">*</star></label>
+                        <label class="col-sm-2 control-label">{{ "Title"|trans }} <star class="star">*</star></label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" maxlength="100" name="title" id="title" value="" required="">
+                            <input type="text" class="form-control" maxlength="100" name="title" id="title" value="" required>
                             <!--<small class="form-text text-muted">small text muted</small>-->
                             <span class="error" for="#title" style="display: none;">S'il vous plaît insérez le titre pour cet article!</span>
                         </div>
@@ -38,7 +38,7 @@
                 </div>
                 <div class="form-group">
                     <div class="row">
-                        <label class="col-sm-2 control-label">{% trans %}Description{% endtrans %} </label>
+                        <label class="col-sm-2 control-label">{{ "Description"|trans }} </label>
                         <div class="col-sm-10">
                             <textarea class="form-control" name="description" id="description" style=""></textarea>
                         </div>
@@ -46,7 +46,7 @@
                 </div>
                 <div class="form-group">
                     <div class="row">
-                        <label class="col-sm-2 control-label">{% trans %}Content{% endtrans %} </label>
+                        <label class="col-sm-2 control-label">{{ "Content"|trans }} </label>
                         <div class="col-sm-10">
                             <textarea class="form-control" name="content" id="content" style=""></textarea>
                         </div>
@@ -54,15 +54,15 @@
                 </div>
                 <div class="form-group mb-4">
                     <div class="row">
-                        <label class="col-sm-2 control-label">{% trans %}Image{% endtrans %}</label>
+                        <label class="col-sm-2 control-label">{{ "Image"|trans }}</label>
                         <div class="col-sm-10">
                             <div class="input-group form-control-file">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text">{% trans %}Upload{% endtrans %}</span>
+                                    <span class="input-group-text">{{ "Upload"|trans }}</span>
                                 </div>
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" id="inputGroupFile01" accept="image/*" name="image">
-                                    <label class="custom-file-label" for="inputGroupFile01">{% trans %}Select an image{% endtrans %}</label>
+                                    <label class="custom-file-label" for="inputGroupFile01">{{ "Select an image"|trans }}</label>
                                 </div>
                             </div>
                             <span class="error" id="error-file-type" style="display: none;">Sélectionnez votre image.</span>
@@ -106,7 +106,7 @@
                 <img class="logo-img" src="{{ asset('images/admin/logo-neuillytech.png') }}" alt="" width="200">
             </div>
             <div class="modal-body px-lg-3">
-                <h4 class="modal-title">{% trans %}Add{% endtrans %}</h4>
+                <h4 class="modal-title">{{ "Add"|trans }}</h4>
                 <div class="alert alert-danger" role="alert" id="add-category-error" style="display: none;"></div>
                 <form id="form-new-category" method="post">
                     <input type="hidden" name="token" value="{{ csrf_token('add-category') }}">
@@ -114,13 +114,13 @@
                         <div class="col-lg-12">
                             <div class="form-row">
                                 <div class="col-6 col-sm-12 form-group">
-                                    <label class="label-weight">{% trans %}Name{% endtrans %}</label>
+                                    <label class="label-weight">{{ "Name"|trans }}</label>
                                     <input type="text" name="category_name" class="form-control" maxlength="255" required>
                                 </div>
-                                <div class="col-6 col-sm-12 form-group">
+                                <div class="col-6 col-sm-12 form-group" style="display: none">
                                     <label class="">
-                                        <input type="checkbox" name="category_status" value="1">
-                                        <span class="label-text">{% trans %}Active{% endtrans %}</span>
+                                        <input type="checkbox" name="category_status" value="1" checked>
+                                        <span class="label-text">{{ "Active"|trans }}</span>
                                     </label>
                                 </div>
                             </div>
@@ -128,8 +128,8 @@
                     </div>
 
                     <div class="text-center py-2">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans %}Cancel{% endtrans %}</button>
-                        <button type="submit" class="btn btn-primary ml-2">{% trans %}Save{% endtrans %}</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ "Cancel"|trans }}</button>
+                        <button type="submit" class="btn btn-primary ml-2">{{ "Save"|trans }}</button>
                     </div>
                 </form>
             </div>

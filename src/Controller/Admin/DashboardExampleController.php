@@ -72,6 +72,5 @@ class DashboardExampleController extends AbstractController
         $manager = $this->getDoctrine()->getManager();
         $manager->persist($article);
         $manager->flush();
-        // End here 27/12/2018
     }
 }

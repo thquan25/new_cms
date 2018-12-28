@@ -9,7 +9,7 @@ use App\Entity\ArticleCategory;
 use Symfony\Component\HttpFoundation\Request;
 use App\Repository\ArticleRepository;
 use Symfony\Component\HttpFoundation\Response;
-use App\Utils\StringUtil;
+use App\Util\StringUtil;
 
 class ArticleCategoryController extends AbstractController
 {
@@ -27,7 +27,9 @@ class ArticleCategoryController extends AbstractController
      */
     public function index()
     {
-    //    $categories = $this->getDoctrine()->getRepository(ArticleCategory::class)->findAll();
+       $categories = $this->getDoctrine()->getRepository(ArticleCategory::class)->findAll();
+       dump($categories);
+       die;
     //    return $this->render('admin/dashboard_example/index.html.twig', array(
     //        'title' => $this->title,
     //        'breadcrumb' => $this->breadcrumb,
@@ -51,7 +53,14 @@ class ArticleCategoryController extends AbstractController
             $manager->persist($articleCategory);
             $manager->flush();
 
-            return new Response('Success');
+            if ($request->isXmlHttpRequest()) {
+                return new Response(json_encode([
+                    'success' => 1,
+                    'category_name' => $request->get('name'),
+                    'category_id' => $articleCategory->getId(),
+                ]));
+            }
+            return $this->redirectToRoute('admin_store_article_category');
         } catch (\Exception $e) {
             return new Response($e->getMessage());
         }

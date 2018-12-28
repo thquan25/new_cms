@@ -10,14 +10,14 @@
 
 <div class="container-fluid">
     <div class="row panel-heading-top mb-4">
-        <div class="col-4"><a class="btn btn-primary btn-round" href="{{ path('admin_create_article') }}"> + {% trans %}Add new Article{% endtrans %} </a></div>
+        <div class="col-4"><a class="btn btn-primary btn-round" href="{{ path('admin_create_article') }}"> + {{ "Add new Article"|trans }} </a></div>
         <div class="col-8 top-filter">
             <div class="pull-right">
                 <form class="form-inline form-filter-top ">
                     <div class="form-group"><input type="text" value="" placeholder="" class="form-control"></div>
                     <div class="form-group form-group-primary ml-2">
                         <select class="custom-select select-style-second form-control">
-                            <option value="title">{% trans %}Title{% endtrans %}</option>
+                            <option value="title">{{ "Title"|trans }}</option>
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary btn-icon ml-2"><i class="material-icons">search</i></button>
@@ -34,25 +34,25 @@
                     <thead>
                         <tr>
                             <th class="has-sort"><span>ID</span></th>
-                            <th>{% trans %}Title{% endtrans %}</th>
-                            <th>{% trans %}Category{% endtrans %}
+                            <th>{{ "Title"|trans }}</th>
+                            <th>{{ "Category"|trans }}
                                 <br>
                                 <select class="table-filter" name="filter" data-field="archive" style="max-width: 60px">
-                                    <option value="">-- {% trans %}All{% endtrans %} --</option>
+                                    <option value="">-- {{ "All"|trans }} --</option>
                                     {% for category in categories %}
                                     <option value="{{ category.id }}">{{ category.name }}</option>
                                     {% endfor %}
                                 </select>
                             </th>
-                            <th>{% trans %}Author{% endtrans %}</th>
-                            <th>{% trans %}Status{% endtrans %}<br>
+                            <th>{{ "Author"|trans }}</th>
+                            <th>{{ "Status"|trans }}<br>
                                 <select class="table-filter" name="filter" data-field="status" style="max-width: 60px">
-                                    <option value="">-- {% trans %}All{% endtrans %} --</option>
-                                    <option value="1">{% trans %}Active{% endtrans %}</option>
-                                    <option value="0">{% trans %}Inactive{% endtrans %}</option>
+                                    <option value="">-- {{ "All"|trans }} --</option>
+                                    <option value="1">{{ "Active"|trans }}</option>
+                                    <option value="0">{{ "Inactive"|trans }}</option>
                                 </select>
                             </th>
-                            <th class="has-sort">{% trans %}Created date{% endtrans %} </th>
+                            <th class="has-sort">{{ "Created date"|trans }} </th>
                             <th></th>
                         </tr>
                     </thead>
@@ -92,7 +92,7 @@
         <div class="d-flex align-items-center">
             <div class="form-inline ml-auto">
                 <label>
-                    {% trans %}Show{% endtrans %}
+                    {{ "Show"|trans }}
                     <select class="custom-select form-control form-control-sm mx-2">
                         <option value="50">50</option>
                         <option value="100">100</option>

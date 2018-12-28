@@ -1,5 +1,13 @@
+<script src="{{ asset('js/admin/ckeditor/ckeditor.js') }}"></script>
 <script>
     $(document).ready(function() {
+        CKEDITOR.replace('content', {
+            height: 400,
+            toolbar: 'Basic',
+            youtube_responsive: true,
+            allowedContent: 'iframe[*]'
+        });
+
         $('#btn-add-category').on('click', function() {
             $('#add-category').modal('show');
         });
@@ -16,12 +24,13 @@
             $.ajax({
                 url: '{{ path('admin_store_article_category') }}',
                 type: 'post',
-                dataType: 'text',
+                dataType: 'json',
                 data: data
             }).done(function(resp) {
-                if (resp == 'Success') {
+                console.log(resp);
+                if (resp.success == 1) {
                     clear_modal('#add-category');
-                    add_category_select();
+                    add_category_select(resp.category_id, resp.category_name);
                 } else {
                     show_error(resp, '#add-category-error');
                 }
@@ -38,5 +47,10 @@
     function show_error(message, element) {
         console.log('show error');
         $(element).html(message).show();
+    }
+
+    function add_category_select(category_id, category_name) {
+        var category_select = $('#form-add-article').find('select[name="category_id"]');
+        category_select.append('<option value="' + category_id + '" selected>' + category_name + '</option>');
     }
 </script>
