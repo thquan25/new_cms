@@ -16,12 +16,14 @@
                 </div>
             </div>
         </div>
+
+        {% block modals %}{% endblock %}
         <!-- start Modal -->
         <div class="modal fade modal-global-msg" id="addProspect" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <img class="logo-img" src="img/logo-full.png" alt="" width="200">
+                        <img class="logo-img" src="{{ asset('images/admin/logo-full.png') }}" alt="" width="200">
                     </div>
                     <div class="modal-body px-lg-5">
                         <h4 class="modal-title">Ajouter un prospect</h4>
@@ -182,5 +184,6 @@
                 });
             });
         </script>
+        {% block javascripts %}{% endblock %}
     </body>
 </html>

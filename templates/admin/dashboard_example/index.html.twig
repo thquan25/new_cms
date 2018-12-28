@@ -1,18 +1,23 @@
 {% extends 'admin/layout/base.html.twig' %}
 
+{% block dashboard_active %}{{ 'active' }}{% endblock %}
+
+{% block extended_css %}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+{% endblock %}
+
 {% block content %}
 
 <div class="container-fluid">
     <div class="row panel-heading-top mb-4">
-        <div class="col-4"><a class="btn btn-primary btn-round" href="add-article.php"> + Ajouter Un
-                Nouvel Article </a></div>
+        <div class="col-4"><a class="btn btn-primary btn-round" href="{{ path('admin_create_article') }}"> + {{ "Add new Article"|trans }} </a></div>
         <div class="col-8 top-filter">
             <div class="pull-right">
                 <form class="form-inline form-filter-top ">
                     <div class="form-group"><input type="text" value="" placeholder="" class="form-control"></div>
                     <div class="form-group form-group-primary ml-2">
                         <select class="custom-select select-style-second form-control">
-                            <option value="title">Titre</option>
+                            <option value="title">{{ "Title"|trans }}</option>
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary btn-icon ml-2"><i class="material-icons">search</i></button>
@@ -25,96 +30,57 @@
     <div class="card no-border-p0">
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-hover text-center">
+                <table class="table table-hover text-center" id="data-table">
                     <thead>
                         <tr>
-                            <th><span>PID</span></th>
-                            <th>Titre</th>
-                            <th>Archive
+                            <th class="has-sort"><span>ID</span></th>
+                            <th>{{ "Title"|trans }}</th>
+                            <th>{{ "Category"|trans }}
                                 <br>
                                 <select class="table-filter" name="filter" data-field="archive" style="max-width: 60px">
-                                    <option value="">-- Tout --</option>
-                                    <option value="7">Archives 1</option>
+                                    <option value="">-- {{ "All"|trans }} --</option>
+                                    {% for category in categories %}
+                                    <option value="{{ category.id }}">{{ category.name }}</option>
+                                    {% endfor %}
                                 </select>
                             </th>
-                            <th>Image</th>
-                            <th>Statut<br>
+                            <th>{{ "Author"|trans }}</th>
+                            <th>{{ "Status"|trans }}<br>
                                 <select class="table-filter" name="filter" data-field="status" style="max-width: 60px">
-                                    <option value="">-- Tout --</option>
-                                    <option value="1">Actif</option>
-                                    <option value="0">Inactif</option>
+                                    <option value="">-- {{ "All"|trans }} --</option>
+                                    <option value="1">{{ "Active"|trans }}</option>
+                                    <option value="0">{{ "Inactive"|trans }}</option>
                                 </select>
                             </th>
-                            <th>Date de création </th>
+                            <th class="has-sort">{{ "Created date"|trans }} </th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><a href="prospect-detail.php" class="alink">00001</a></td>
-                            <td>Praesentium qui praesentium rem qui</td>
-                            <td>Archives 1 </td>
-                            <td><img src="img/75x75.png" alt="" width="75"></td>
-                            <td><img src="img/icon-validation-check.png" alt=""></td>
-                            <td>25/04/2018</td>
+                        {% for article in articles %}
+                        <tr id="article-{{ article.id }}">
+                            <td><a href="prospect-detail.php" class="alink">{{ article.id }}</a></td>
+                            <td>{{ article.title }}</td>
+                            <td>{{ article.category.name }}</td>
+                            <td>{{ article.author.username }}</td>
                             <td>
-                                <div class="td-btn"><a class="btn-icon-s" href="add-article.php"><i
-                                            class="material-icons">border_color</i></a> <a class="btn-icon-s"><i
-                                            class="fa fa-trash"></i></a></div>
+                                {% if article.status == 1 %}
+                                <img src="{{ asset('images/admin/icon-validation-check.png') }}" alt="">
+                                {% else %}
+                                <img src="{{ asset('images/admin/icon-validation-x.png') }}" alt="">
+                                {% endif %}
+                            </td>
+                            <td>{{ article.createdAt|date('d/m/Y') }}</td>
+                            <td>
+                                <div class="td-btn">
+                                <a class="btn-icon-s" href="add-article.php">
+                                <i class="material-icons">border_color</i>
+                                </a>
+                                <a class="btn-icon-s"><i class="fa fa-trash"></i></a>
+                                </div>
                             </td>
                         </tr>
-                        <tr>
-                            <td><a href="prospect-detail.php" class="alink">00001</a></td>
-                            <td>Praesentium qui praesentium rem qui</td>
-                            <td>Archives 1 </td>
-                            <td><img src="img/75x75.png" alt="" width="75"></td>
-                            <td><img src="img/icon-validation-x.png" alt=""></td>
-                            <td>25/04/2018</td>
-                            <td>
-                                <div class="td-btn"><a class="btn-icon-s" href="add-article.php"><i
-                                            class="material-icons">border_color</i></a> <a class="btn-icon-s"><i
-                                            class="fa fa-trash"></i></a></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><a href="prospect-detail.php" class="alink">00001</a></td>
-                            <td>Praesentium qui praesentium rem qui</td>
-                            <td>Archives 1 </td>
-                            <td><img src="img/75x75.png" alt="" width="75"></td>
-                            <td><img src="img/icon-validation-check.png" alt=""></td>
-                            <td>25/04/2018</td>
-                            <td>
-                                <div class="td-btn"><a class="btn-icon-s" href="add-article.php"><i
-                                            class="material-icons">border_color</i></a> <a class="btn-icon-s"><i
-                                            class="fa fa-trash"></i></a></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><a href="prospect-detail.php" class="alink">00001</a></td>
-                            <td>Praesentium qui praesentium rem qui</td>
-                            <td>Archives 1 </td>
-                            <td><img src="img/75x75.png" alt="" width="75"></td>
-                            <td><img src="img/icon-validation-check.png" alt=""></td>
-                            <td>25/04/2018</td>
-                            <td>
-                                <div class="td-btn"><a class="btn-icon-s" href="add-article.php"><i
-                                            class="material-icons">border_color</i></a> <a class="btn-icon-s"><i
-                                            class="fa fa-trash"></i></a></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><a href="prospect-detail.php" class="alink">00001</a></td>
-                            <td>Praesentium qui praesentium rem qui</td>
-                            <td>Archives 1 </td>
-                            <td><img src="img/75x75.png" alt="" width="75"></td>
-                            <td><img src="img/icon-validation-check.png" alt=""></td>
-                            <td>25/04/2018</td>
-                            <td>
-                                <div class="td-btn"><a class="btn-icon-s" href="add-article.php"><i
-                                            class="material-icons">border_color</i></a> <a class="btn-icon-s"><i
-                                            class="fa fa-trash"></i></a></div>
-                            </td>
-                        </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
@@ -126,7 +92,7 @@
         <div class="d-flex align-items-center">
             <div class="form-inline ml-auto">
                 <label>
-                    Affichage
+                    {{ "Show"|trans }}
                     <select class="custom-select form-control form-control-sm mx-2">
                         <option value="50">50</option>
                         <option value="100">100</option>
@@ -149,5 +115,22 @@
     </div>
 </div>
 
+{% endblock %}
+
+{% block javascripts %}
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        var data_table = $('#data-table').DataTable({
+            ordering: false,
+            paging: false
+        });
+
+        $('#data-table').on('click', 'th.has-sort', function() {
+            var index_of_this_column = $(this).index();
+            console.log(index_of_this_column);
+        });
+    });
+</script>
 {% endblock %}
 
